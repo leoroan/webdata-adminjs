@@ -11,6 +11,7 @@ const options: AdminJSOptions = {
     logo: './Pvcialogo.webp',
     favicon: './buscar.png',
     companyName: 'MinTRP-DEVS c.o.',
+    withMadeWithLove: false,
   },
   resources: [
     {
