@@ -3,15 +3,18 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && copyfiles -u 1 src/public/**/* dist",
     "lint": "eslint \"src\"",
     "start": "dotenv -c '.env' -- node dist/app",
+    "dev": "tsc && dotenv -c '.env' -- node dist/app",
     "update-models": "dotenv -c '.env' -- node src/add.models.js"
   },
   "dependencies": {
     "@adminjs/express": "^6.1.0",
     "@adminjs/sequelize": "^4.0.0",
     "adminjs": "^7.7.2",
+    "bcryptjs": "^3.0.2",
+    "connect-session-sequelize": "^7.1.7",
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "express-formidable": "^1.2.0",
@@ -22,10 +25,12 @@
     "webdata": "file:"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/express": "^4.17.17",
     "@types/node": "^18.15.11",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
+    "copyfiles": "^2.4.1",
     "dotenv-cli": "^7.2.1",
     "eslint": "^8.38.0",
     "eslint-config-airbnb": "^19.0.4",

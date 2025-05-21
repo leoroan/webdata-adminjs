@@ -1,19 +1,26 @@
 import { DefaultAuthProvider } from 'adminjs';
 
-import componentLoader from './component-loader.js';
-import { DEFAULT_ADMIN } from './constants.js';
+import db from '../db/models/index.js';
 
-/**
- * Make sure to modify "authenticate" to be a proper authentication method
- */
+import componentLoader from './component-loader.js';
+
 const provider = new DefaultAuthProvider({
   componentLoader,
   authenticate: async ({ email, password }) => {
-    if (email === DEFAULT_ADMIN.email) {
-      return { email };
-    }
+    const user = await db.usuarios.findOne({ where: { email } });
 
-    return null;
+    if (!user) return null;
+
+    const bcrypt = await import('bcryptjs');
+    const isValid = await bcrypt.compare(password, user.password);
+
+    if (!isValid) return null;
+
+    return {
+      email: user.email,
+      username: user.username,
+      // role: user.role, // si querés usar roles más adelante
+    };
   },
 });
 

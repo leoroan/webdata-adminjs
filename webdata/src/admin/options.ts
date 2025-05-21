@@ -7,8 +7,26 @@ import componentLoader from './component-loader.js';
 const options: AdminJSOptions = {
   componentLoader,
   rootPath: '/admin',
-  resources: [],
-  databases: [db.sequelize],
+  branding: {
+    logo: './Pvcialogo.webp',
+    favicon: './buscar.png',
+    companyName: 'MinTRP-DEVS c.o.',
+  },
+  resources: [
+    {
+      resource: db.empresas,
+      options: {
+        navigation: { name: 'Empresas', icon: 'Home' },
+      },
+    },
+    {
+      resource: db.estados,
+      options: {
+        navigation: { name: 'Empresas', icon: 'Home' },
+      },
+    },
+    // databases: [db.sequelize],
+  ],
 };
 
 export default options;
