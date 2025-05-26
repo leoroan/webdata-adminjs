@@ -10,8 +10,10 @@
     "update-models": "dotenv -c '.env' -- node src/add.models.js"
   },
   "dependencies": {
+    "@adminjs/design-system": "^4.1.1",
     "@adminjs/express": "^6.1.0",
     "@adminjs/sequelize": "^4.0.0",
+    "@adminjs/themes": "^1.0.1",
     "adminjs": "^7.7.2",
     "bcryptjs": "^3.0.2",
     "connect-session-sequelize": "^7.1.7",
