@@ -38,7 +38,7 @@ const start = async () => {
     tableName: 'sessions',
   });
 
-  // await sessionStore.sync(); // solo si sessions no está creada, si no se puede omitir
+  sessionStore.sync();
 
   const router = buildAuthenticatedRouter(
     admin,

@@ -1,8 +1,9 @@
 import { AdminJSOptions, locales as AdminJSLocales } from 'adminjs';
 
-import db from '../db/models/index.js';
+// import db from '../db/models/index.js';
 
 import componentLoader from './component-loader.js';
+import empresaResource from './resources/empresa.res.js';
 
 const options: AdminJSOptions = {
   componentLoader,
@@ -21,35 +22,7 @@ const options: AdminJSOptions = {
     availableLanguages: Object.keys(AdminJSLocales),
   },
   resources: [
-    {
-      resource: db.empresas,
-      options: {
-        actions: {
-          // showInDrawer: true,
-        },
-        sort: {
-          sortBy: 'updatedAt',
-          direction: 'desc',
-        },
-        properties: {
-          descripcion: {
-            isVisible: {
-              edit: true,
-              show: true,
-              list: true,
-              filter: true,
-            },
-          },
-        },
-        navigation: { name: 'Ministerio', icon: 'Codesandbox' },
-      },
-    },
-    {
-      resource: db.estados,
-      options: {
-        navigation: { name: 'Ministerio', icon: 'Codesandbox' },
-      },
-    },
+    empresaResource,
     // databases: [db.sequelize],
   ],
 };

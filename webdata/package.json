@@ -10,6 +10,7 @@
     "update-models": "dotenv -c '.env' -- node src/add.models.js"
   },
   "dependencies": {
+    "@adminjs/bundler": "^3.0.0",
     "@adminjs/design-system": "^4.1.1",
     "@adminjs/express": "^6.1.0",
     "@adminjs/sequelize": "^4.0.0",
