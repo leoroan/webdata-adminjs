@@ -1,6 +1,8 @@
 import React from 'react';
 import { Box, Title, Text } from '@adminjs/design-system';
 
+import CardBox from './CardBox.jsx';
+
 function Dashboard() {
   // Datos mock
   const stats = [
@@ -27,15 +29,10 @@ function Dashboard() {
         display="flex"
         justifyContent="space-around"
         alignItems="center"
-        height="160px"
-        border="1px solid #e3e8ee"
+        gap="xl"
+        height="auto"
       >
-        {stats.map(({ label, value }) => (
-          <Box key={label} textAlign="center">
-            <Title>{value}</Title>
-            <Text color="grey60">{label}</Text>
-          </Box>
-        ))}
+        <CardBox title="Solicitudes" endpoint="/admin/api/resources/solicitudes/actions/list" />
       </Box>
 
       {/* Sección inferior: lista de actividades recientes (mock) */}

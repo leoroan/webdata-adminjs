@@ -4,6 +4,11 @@ import { AdminJSOptions, locales as AdminJSLocales } from 'adminjs';
 
 import componentLoader from './component-loader.js';
 import empresaResource from './resources/empresa.res.js';
+import solicitudResource from './resources/solicitudes.res.js';
+import estadosResource from './resources/estados.res.js';
+import tipoSolicitudResource from './resources/tipoSolicitud.res.js';
+import usuarioResource from './resources/usuario.res.js';
+import rolesResource from './resources/roles.res.js';
 
 const options: AdminJSOptions = {
   componentLoader,
@@ -23,6 +28,11 @@ const options: AdminJSOptions = {
   },
   resources: [
     empresaResource,
+    solicitudResource,
+    estadosResource,
+    tipoSolicitudResource,
+    usuarioResource,
+    rolesResource,
     // databases: [db.sequelize],
   ],
 };
