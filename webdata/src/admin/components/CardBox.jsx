@@ -16,15 +16,20 @@ function CardBox({ title, endpoint }) {
   return (
     <Box
       variant="card"
-      bg="grey"
-      borderRadius="xl"
+      bg="white"
       boxShadow="card"
+      borderRadius="xl"
       padding="xl"
-      textAlign="center"
-      flex="1"
+      marginTop="xl"
+      mb="xl"
+      flex
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
+      height="auto"
     >
       <Title>{value !== null ? value : '...'}</Title>
-      <Text color="grey80">{title}</Text>
+      <Text color="grey60">{title}</Text>
     </Box>
   );
 }

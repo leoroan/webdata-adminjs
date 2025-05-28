@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Title, Text } from '@adminjs/design-system';
 
 import CardBox from './CardBox.jsx';
+import CardBoxPorEstado from './CardBoxPorEstado.jsx';
 
 function Dashboard() {
   // Datos mock
@@ -20,7 +21,7 @@ function Dashboard() {
   return (
     <Box variant="grey" padding="xl" height="100%" border="1px solid rgb(152, 154, 156)">
       {/* Sección superior: estadísticas totalizadoras */}
-      <Box
+      {/* <Box
         bg="white"
         borderRadius="xl"
         boxShadow="lg"
@@ -33,6 +34,26 @@ function Dashboard() {
         height="auto"
       >
         <CardBox title="Solicitudes" endpoint="/admin/api/resources/solicitudes/actions/list" />
+        <CardBoxPorEstado />
+      </Box> */}
+
+      <Box
+        bg="white"
+        borderRadius="xl"
+        boxShadow="card"
+        padding="xl"
+        mb="xl"
+      >
+        {/* Título general */}
+        <Title mb="lg" fontSize="xl">
+          Solicitudes
+        </Title>
+
+        {/* Total y breakdown en fila */}
+        <Box display="flex" flexWrap="wrap" gap="xl">
+          <CardBox title="Total" endpoint="/admin/api/resources/solicitudes/actions/list" />
+          <CardBoxPorEstado />
+        </Box>
       </Box>
 
       {/* Sección inferior: lista de actividades recientes (mock) */}
